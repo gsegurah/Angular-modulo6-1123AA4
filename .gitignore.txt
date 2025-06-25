@@ -1,0 +1,12 @@
+# Ignorar carpetas de dependencias (para Node.js, Python, etc.)
+backend/node_modules/
+frontend/node_modules/
+
+# Ignorar archivos de caché o compilación
+backend/__pycache__/
+frontend/build/
+frontend/dist/
+
+# Ignorar archivos de configuración sensibles
+.env
+*.log

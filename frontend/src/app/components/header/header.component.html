@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">Concesionario de Vehículos Armenia</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/">Inicio</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownModelos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Modelos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownModelos">
+            <li><a class="dropdown-item" routerLink="/sedanes">Sedanes</a></li>
+            <li><a class="dropdown-item" routerLink="/camionetas">Camionetas</a></li>
+            <li><a class="dropdown-item" routerLink="/deportivos">Deportivos</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Vehículos Eléctricos</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" routerLink="/empleados" routerLinkActive="active">Empleados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contacto</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

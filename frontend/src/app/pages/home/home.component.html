@@ -1,0 +1,165 @@
+<!--home.component.html-->
+<div class="container my-2">
+    <div id="carouselVehiculos" class="carousel slide mb-2" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselVehiculos" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselVehiculos" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselVehiculos" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselVehiculos" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselVehiculos" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/vehiculo1.jpg" class="d-block w-100" alt="Vehículo Urbano">
+            </div>
+            <div class="carousel-item">
+                <img src="img/vehiculo2.jpg" class="d-block w-100" alt="Coche Deportivo">
+            </div>
+            <div class="carousel-item">
+                <img src="img/vehiculo3.jpg" class="d-block w-100" alt="SUV Familiar">
+            </div>
+            <div class="carousel-item">
+                <img src="img/vehiculo4.jpg" class="d-block w-100" alt="Mugstan">
+            </div>
+            <div class="carousel-item">
+                <img src="img/vehiculo5.jpg" class="d-block w-100" alt="Lamborgini">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselVehiculos" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselVehiculos" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+
+    <h2 class="text-center mb-4">Descubre Nuestros Mejores Modelos</h2>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col">
+            <div class="card h-100 shadow">
+                <img src="img/sedan.jpg" class="card-img-top" alt="Sedán Lujoso">
+                <div class="card-body">
+                    <h5 class="card-title">Sedán Lujoso</h5>
+                    <p class="card-text">Estilo y confort combinados para tus viajes diarios y especiales.</p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sedanLujosoModal">
+                        Ver Detalles
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 shadow">
+                <img src="img/camioneta.jpg" class="card-img-top" alt="Camioneta Resistente">
+                <div class="card-body">
+                    <h5 class="card-title">Camioneta de Trabajo</h5>
+                    <p class="card-text">Potencia y durabilidad para las tareas más exigentes.</p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#camionetaModal">
+                        Ver Detalles
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 shadow">
+                <img src="img/deportivo.jpg" class="card-img-top" alt="Deportivo de Alta Gama">
+                <div class="card-body">
+                    <h5 class="card-title">Deportivo de Ensueño</h5>
+                    <p class="card-text">Rendimiento y adrenalina en cada curva, para los amantes de la velocidad.</p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deportivoModal">
+                        Ver Detalles
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sedanLujosoModal" tabindex="-1" aria-labelledby="sedanLujosoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="sedanLujosoModalLabel">{{ sedanLujosoDetails.title }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center mb-3">
+            <img [src]="sedanLujosoDetails.imageUrl" class="img-fluid rounded" [alt]="sedanLujosoDetails.title" style="max-height: 400px; object-fit: cover;">
+        </div>
+        <p>{{ sedanLujosoDetails.description }}</p>
+        <p><strong>Características destacadas:</strong></p>
+        <ul>
+            <li>Diseño elegante y aerodinámico.</li>
+            <li>Interior de lujo con acabados premium.</li>
+            <li>Conducción suave y silenciosa.</li>
+            <li>Sistemas avanzados de infoentretenimiento.</li>
+        </ul>
+        <p class="text-muted"><small>Esta es una descripción general del "Sedán Lujoso" destacado en nuestra página principal.</small></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <a class="btn btn-primary" href="/sedanes">Ver Todos los Sedanes</a>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="camionetaModal" tabindex="-1" aria-labelledby="camionetaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="camionetaModalLabel">{{ camionetaTrabajoDetails.title }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center mb-3">
+            <img [src]="camionetaTrabajoDetails.imageUrl" class="img-fluid rounded" [alt]="camionetaTrabajoDetails.title" style="max-height: 400px; object-fit: cover;">
+        </div>
+        <p>{{ camionetaTrabajoDetails.description }}</p>
+        <p><strong>Características adicionales:</strong></p>
+        <ul>
+            <li>Diseño robusto y funcional.</li>
+            <li>Amplio espacio de carga.</li>
+            <li>Ideal para el transporte de materiales o equipos.</li>
+            <li>Confiabilidad probada en condiciones exigentes.</li>
+        </ul>
+        <p class="text-muted"><small>Esta es una descripción detallada de nuestra "Camioneta de Trabajo" destacada.</small></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <a href="/camionetas" class="btn btn-primary">Ver Todas las Camionetas</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deportivoModal" tabindex="-1" aria-labelledby="deportivoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deportivoModalLabel">{{ deportivoEnsuenoDetails.title }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center mb-3">
+            <img [src]="deportivoEnsuenoDetails.imageUrl" class="img-fluid rounded" [alt]="deportivoEnsuenoDetails.title" style="max-height: 400px; object-fit: cover;">
+        </div>
+        <p>{{ deportivoEnsuenoDetails.description }}</p>
+        <p><strong>Características destacadas:</strong></p>
+        <ul>
+            <li>Motor de altas prestaciones.</li>
+            <li>Diseño agresivo y exclusivo.</li>
+            <li>Aceleración y velocidad impresionantes.</li>
+            <li>Tecnología orientada al rendimiento.</li>
+        </ul>
+        <p class="text-muted"><small>Esta es una descripción general del "Deportivo de Ensueño" destacado en nuestra página principal.</small></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <a href="/deportivos" class="btn btn-primary">Ver Todos los Deportivos</a>
+      </div>
+    </div>
+  </div>
+</div>

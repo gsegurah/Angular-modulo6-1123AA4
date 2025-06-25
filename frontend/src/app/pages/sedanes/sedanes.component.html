@@ -1,0 +1,23 @@
+<div class="container my-5">
+  <h2 class="text-center mb-5">Nuestros Sedanes Disponibles</h2>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    @for (sedan of sedans; track sedan.title) {
+      <div class="col">
+        <div class="card h-100 shadow">
+          <img [src]="sedan.image" class="card-img-top" [alt]="sedan.title">
+          <div class="card-body">
+            <h5 class="card-title">{{ sedan.title }}</h5>
+            <p class="card-text">{{ sedan.description }}</p>
+            <a href="#" class="btn btn-secondary">Más Información</a>
+          </div>
+        </div>
+      </div>
+    }
+    @empty {
+      <div class="col-12 text-center text-muted">
+        <p>No hay sedanes disponibles en este momento.</p>
+      </div>
+    }
+  </div>
+</div>

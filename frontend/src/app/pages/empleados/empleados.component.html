@@ -1,0 +1,95 @@
+<!--empleados.component.html-->
+<div class="container my-5">
+  <h2 class="text-center mb-4">Gestión de Empleados</h2>
+
+  <!-- Mensaje de estado -->
+  @if (statusMessage) {
+    <div class="alert alert-{{ statusType === 'success' ? 'success' : 'danger' }} alert-dismissible fade show" role="alert">
+      {{ statusMessage }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  }
+
+  <!-- Formulario para Añadir/Editar Empleado -->
+  <div class="card shadow p-4 mb-5">
+    <h3 class="card-title text-center mb-4">@if (isEditing) {Editar Empleado} @else {Nuevo Empleado}</h3>
+    <form (ngSubmit)="addOrEditEmpleado()" #EmpleadoForm="ngForm">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="cedula" class="form-label">Cédula</label>
+          <input type="text" class="form-control" id="cedula" name="cedula"
+                 [(ngModel)]="selectedEmpleado.cedula" required
+                 [disabled]="isEditing"> <!-- Deshabilitar cédula en edición -->
+        </div>
+        <div class="col-md-6">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" name="nombre"
+                 [(ngModel)]="selectedEmpleado.nombre" required>
+        </div>
+        <div class="col-md-6">
+          <label for="puesto" class="form-label">Puesto</label>
+          <input type="text" class="form-control" id="puesto" name="puesto"
+                 [(ngModel)]="selectedEmpleado.puesto" required>
+        </div>
+        <div class="col-md-6">
+          <label for="oficina" class="form-label">Oficina</label>
+          <input type="text" class="form-control" id="oficina" name="oficina"
+                 [(ngModel)]="selectedEmpleado.oficina" required>
+        </div>
+        <div class="col-md-6">
+          <label for="salario" class="form-label">Salario</label>
+          <input type="number" class="form-control" id="salario" name="salario"
+                 [(ngModel)]="selectedEmpleado.salario" required min="0">
+        </div>
+      </div>
+      <div class="d-flex justify-content-center mt-4">
+        <button type="submit" class="btn btn-success me-2" [disabled]="!EmpleadoForm.form.valid">
+          @if (isEditing) {Actualizar} @else {Guardar}
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="resetForm()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Tabla de Empleados -->
+  <div class="card shadow p-4">
+    <h3 class="card-title text-center mb-4">Lista de Empleados</h3>
+    @if (empleados.length > 0) {
+      <div class="table-responsive">
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>Cédula</th>
+              <th>Nombre</th>
+              <th>Puesto</th>
+              <th>Oficina</th>
+              <th>Salario</th>
+              <th class="text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (empleado of empleados; track empleado._id) {
+              <tr>
+                <td>{{ empleado.cedula }}</td>
+                <td>{{ empleado.nombre }}</td>
+                <td>{{ empleado.puesto }}</td>
+                <td>{{ empleado.oficina }}</td>
+                <td>{{ empleado.salario | currency:'USD':'symbol':'1.0-0' }}</td> <!-- Formatear salario como moneda -->
+                <td class="text-center">
+                  <button class="btn btn-warning btn-sm me-2" (click)="editEmpleado(empleado)">
+                    <i class="fas fa-edit"></i> <!-- Icono de edición -->
+                  </button>
+                  <button class="btn btn-danger btn-sm" (click)="deleteEmpleado(empleado._id)">
+                    <i class="fas fa-trash-alt"></i> <!-- Icono de eliminar -->
+                  </button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    } @else {
+      <p class="text-center text-muted">No hay empleados registrados.</p>
+    }
+  </div>
+</div>
